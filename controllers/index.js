@@ -6,19 +6,22 @@ var express = require('express'),
 router.use('/goals', require('./goals'))
 
 // Define the home page route.
+var articles = { articles :	[
+		  { 
+		    title : 'Node jest ruchem'
+		    ,slug : 'node-movment'
+		    ,published : true
+		    ,text : "testtttssa   dfadfda"
+		  },
+		  { 
+		    title : 'Node kupa'
+		    ,slug : 'node-kupa'
+		    ,published : true
+		    ,text : "tesdf dfa fdadgha   dfadfda"
+		  }
+		]}
 router.get('/', function(req, res) {
-  Goal.all(function(err, result) {
-    if (err) console.log(err)
-    var obj = {
-      goals: result,
-      helpers: {
-        formatCreatedAt: function() {
-          return this.createdAt.toLocaleDateString()
-        }
-      }
-    }
-    res.render('index', obj)
-  })
+    res.render('index', articles)
 })
 
 module.exports = router
