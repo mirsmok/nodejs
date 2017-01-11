@@ -10,6 +10,10 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 
+if (app.get('env') === 'development') {
+  app.locals.pretty = true;
+}
+
 // Tell the app that the templating engine is Handlebars.
 // switch to jade app.engine('handlebars',
 // switch to jade  // Pass default configuration to express-handlebars module.
@@ -27,7 +31,7 @@ app.set('view engine', 'jade') //change to jade
 // redirect material-design-lite JS and CSS
 //switch to jade app.use('/js/material.min.js', express.static(__dirname + '/node_modules/material-design-lite/dist/material.min.js'))
 //switch to jade app.use('/css/material.min.css', express.static(__dirname + '/node_modules/material-design-lite/dist/material.min.css'))
-
+app.use(express.static(path.join(__dirname, 'public')))
 
 // Use the controllers.
 app.use(require('./controllers'))

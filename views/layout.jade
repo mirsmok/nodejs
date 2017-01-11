@@ -10,24 +10,16 @@ html
     script(type="text/javascript", src="/js/blog.js")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
   body
-    #wrap
-      .container
-        h1.page-header= appTitle
-        p.lead Witam w przykładzie wykorzystania Express.js autorstwa &nbsp;
-          a(href="http://twitter.com/azat_co") @azat_co
-          |. Miłego czytania.
-        block page
-        block header
-          div
-            include includes/menu
-        block alert
-          div.alert.alert-warning.hidden
-        .content
-          block content
+    .div-page
+      block page
+      block header
+        include includes/menu
+      block alert
+        div.alert.alert-warning.hidden
+      .content
+        block content
     block footer
       footer
         .container
           p
-            | Copyright &copy; 2014 | Problemy? Zgłoś na stronie
-            a(href="https://github.com/azat-co/blog-express/issues") GitHub
-            | .
+            | Create by Mirsm:)k &copy;
